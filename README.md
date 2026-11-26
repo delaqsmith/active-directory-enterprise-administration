@@ -196,13 +196,8 @@ dsa.msc
 - Workstations and Servers exist beneath Computers.
 - Accidental deletion protection is enabled.
 
-### 📸 Screenshot Evidence
+<img width="742" height="453" alt="image" src="https://github.com/user-attachments/assets/7d41f049-c12f-4601-9f93-c98c51db243d" />
 
-**Screenshot 1 — Enterprise OU Hierarchy**
-
-![Active Directory OU Structure](screenshots/ou-structure.png)
-
-*Active Directory Users and Computers displaying the Contoso organizational hierarchy.*
 
 ### Technical Significance
 
@@ -373,19 +368,11 @@ The expected distribution was:
 
 I also used ADUC to inspect each department OU and verify the account placement.
 
-### 📸 Screenshot Evidence
+<img width="371" height="152" alt="image" src="https://github.com/user-attachments/assets/b4493554-c985-4ea5-8937-706394b530f3" />
 
-**Screenshot 2 — Bulk User Provisioning**
 
-![Bulk User Provisioning](screenshots/bulk-user-provisioning.png)
+<img width="536" height="260" alt="image" src="https://github.com/user-attachments/assets/9c3266ea-c227-4811-b1de-f16eba88dfea" />
 
-*PowerShell output displaying account provisioning results.*
-
-**Screenshot 3 — Department User Accounts**
-
-![Department Accounts](screenshots/department-users.png)
-
-*Active Directory Users and Computers displaying employee accounts within departmental OUs.*
 
 ### Technical Significance
 
@@ -575,19 +562,9 @@ Get-ADGroupMember `
 
 This recursively expands nested membership to display the users associated with the resource group.
 
-### 📸 Screenshot Evidence
+<img width="539" height="258" alt="image" src="https://github.com/user-attachments/assets/cefa361c-6169-42f8-a344-cb58a9d44858" />
 
-**Screenshot 4 — Active Directory Security Groups**
 
-![Security Groups](screenshots/security-groups.png)
-
-*Global and Domain Local security groups created in Active Directory.*
-
-**Screenshot 5 — AGDLP Group Nesting**
-
-![Group Nesting](screenshots/group-nesting.png)
-
-*Domain Local group membership displaying the nested departmental Global group.*
 
 ### Technical Significance
 
@@ -673,13 +650,8 @@ Properties → Security → Advanced
 
 The verification focused on confirming that the Helpdesk group had the intended delegated permissions.
 
-### 📸 Screenshot Evidence
+<img width="538" height="260" alt="image" src="https://github.com/user-attachments/assets/81461948-b382-48d8-b4f5-2efd88c65888" />
 
-**Screenshot 6 — Helpdesk Delegation**
-
-![Helpdesk Delegation](screenshots/helpdesk-delegation.png)
-
-*Delegation of Control configuration for the GG-Helpdesk security group.*
 
 ### 4.4 Test Delegation Using a Non-Admin Account
 
@@ -758,14 +730,6 @@ A valid least-privilege test requires:
 6. Recording actual command output as supporting evidence.
 
 A generic script exception should not automatically be interpreted as proof of access denial. The specific error must be inspected.
-
-### 📸 Screenshot Evidence
-
-**Screenshot 7 — Helpdesk Delegation Testing**
-
-![Delegation Testing](screenshots/delegation-testing.png)
-
-*PowerShell test output showing the results of authorized and unauthorized administrative operations.*
 
 ### Technical Significance
 
@@ -950,19 +914,8 @@ This verification confirms which Fine-Grained Password Policy applies to the acc
 
 The password used during account creation should also satisfy the intended policy, and password enforcement should be tested separately if required.
 
-### 📸 Screenshot Evidence
+<img width="461" height="307" alt="image" src="https://github.com/user-attachments/assets/ce0b8dff-fd90-42dd-b91e-265ca0d0fb9c" />
 
-**Screenshot 8 — Fine-Grained Password Policy**
-
-![Fine-Grained Password Policy](screenshots/admin-password-policy.png)
-
-*PowerShell output displaying the configured privileged account password policy.*
-
-**Screenshot 9 — Resultant Password Policy**
-
-![Resultant Password Policy](screenshots/resultant-password-policy.png)
-
-*Verification of the effective password policy for the dedicated administrative account.*
 
 ### Technical Significance
 
@@ -1124,43 +1077,6 @@ Enable relevant auditing and collect events associated with:
 Forward Windows Security Event Logs to a SIEM platform such as Splunk or Microsoft Sentinel.
 
 This would allow identity-related events to be monitored, correlated, and investigated through centralized security analytics.
-
----
-
-# 📁 Repository Structure
-
-```text
-active-directory-enterprise-administration/
-│
-├── README.md
-│
-├── scripts/
-│ ├── Create-OUStructure.ps1
-│ ├── Bulk-CreateUsers.ps1
-│ ├── Create-SecurityGroups.ps1
-│ ├── Test-Delegation.ps1
-│ └── Create-AdminFGPP.ps1
-│
-├── data/
-│ └── users.csv
-│
-├── docs/
-│ ├── architecture.md
-│ ├── rbac-design.md
-│ ├── delegation-testing.md
-│ └── password-policy.md
-│
-└── screenshots/
-    ├── ou-structure.png
-    ├── bulk-user-provisioning.png
-    ├── department-users.png
-    ├── security-groups.png
-    ├── group-nesting.png
-    ├── helpdesk-delegation.png
-    ├── delegation-testing.png
-    ├── admin-password-policy.png
-    └── resultant-password-policy.png
-```
 
 ---
 
